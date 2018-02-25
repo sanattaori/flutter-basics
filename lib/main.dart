@@ -14,10 +14,32 @@ class MyScaffold extends StatelessWidget {
       appBar: new AppBar(title: new Text("First Flutter")),
       backgroundColor: Colors.yellowAccent,
       body: new Container(
+        padding: new EdgeInsets.all(20.0),
         child: new Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+
           children: <Widget>[
-            new MyCard(),
-            new MyCard(),
+            new MyCard(
+              title: new Text("Test card1",
+                  style: new TextStyle(
+                    fontSize: 20.0
+                  )
+              ),
+              icon: new Icon(Icons.cake,size: 40.0,color: Colors.redAccent,),
+            ),
+            new MyCard(
+              title: new Text("Test card2",
+              style: new TextStyle(
+                fontSize: 20.0)),
+              icon: new Icon(Icons.title,size: 40.0,color: Colors.blue,),
+            ),
+            new MyCard(
+              title: new Text("Test card3",
+                style: new TextStyle(
+                  fontSize: 20.0
+                )),
+              icon: new Icon(Icons.access_alarms,size: 40.0,color: Colors.pink,),
+            ),
           ],
         ),
       ),
@@ -34,13 +56,17 @@ class MyCard extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return new Container(
+      padding: new EdgeInsets.only(bottom: 20.0),
       child: new Card(
-        child: new Column(
-          children: <Widget>[
-            new Text("Test1 "),
-            new Icon(Icons.favorite)
-          ],
-        ),
+        child: new Container(
+          padding: new EdgeInsets.all(15.0),
+          child: new Column(
+            children: <Widget>[
+              this.title,
+              this.icon,
+            ],
+          ),
+        )
       ),
     );
   }
